@@ -1,7 +1,7 @@
 {
   "name": "Alpine Life", 
   "symbol": "ALPN",
-  "uri": "https://github.com/ldiangelis/alpine/blob/main/TOKEN_URI",
+  "uri": "https://raw.githubusercontent.com/ldiangelis/alpine/main/TOKEN_URI",
   "sellerFeeBasisPoints": 0,
   "creators": null,
   "collection": null,
