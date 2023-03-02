@@ -103,7 +103,7 @@ I: Pull ubuntu image and set up user for the container
 II: Install the prereq's for solana
 
 	# Run the commited image we just created with our new user - if you skipped this above, omit the --user [newuser] flag
-		# sudo docker run -p 8888:8888 --user [newuser] -v /home/host_machine_user/host_machine_directory:/home/host_machine_directory -it [imageid]
+		# sudo docker run -p 8888:8888 --user [newuser] -v /home/host_machine_user/host_machine_dir:/home/host_machine_dir -it [imageid]
 	
 	# Install the necessary packages for solana
 		# sudo apt install curl
@@ -168,7 +168,7 @@ II: Install the prereq's for solana
 III. Create the token
 
 	# Run the container - from last commit in Step II:	
-		# sudo docker run -p 8888:8888 --user [newuser] -v /home/host_machine_user/host_machine_directory:/workspace/host_machine_directory -it [imageid]
+		# sudo docker run -p 8888:8888 --user [newuser] -v /home/host_machine_user/host_machine_dir:/workspace/host_machine_dir -it [imageid]
 	
 	# Create the solana wallet -> this will create our solana wallet we use in the terminal (VSCode)
 		# solana-keygen new
