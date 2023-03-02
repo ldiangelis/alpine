@@ -34,7 +34,7 @@ I: Pull ubuntu image and set up user for the container
 			# Copy and paste image_id to the run command below
 			
 	# Run the image
-	# sudo docker run -p 8888:8888 -v /home/host_machine_user/host_machine_directory:/workspace/host_machine_directory -it [image_id] 
+	# sudo docker run -p 8888:8888 -v /home/host_machine_user/host_machine_dir:/workspace/host_machine_dir -it [image_id] 
 
 	# Add new user - this is an optional step, if you omit this you run as the root user
 
