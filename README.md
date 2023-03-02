@@ -103,7 +103,7 @@ I: Pull ubuntu image and set up user for the container
 II: Install the prereq's for solana
 
 	# Run the commited image we just created with our new user - if you skipped this above, omit the --user [newuser] flag
-		# sudo docker run -p 8888:8888 --user [newuser] -v /home/host_machine_user/host_machine_dir:/home/host_machine_dir -it [imageid]
+	# sudo docker run -p 8888:8888 --user [newuser] -v /home/host_machine_user/host_machine_dir:/home/host_machine_dir -it [imageid]
 	
 	# Install the necessary packages for solana
 		# sudo apt install curl
@@ -168,7 +168,7 @@ II: Install the prereq's for solana
 III. Create the token
 
 	# Run the container - from last commit in Step II:	
-		# sudo docker run -p 8888:8888 --user [newuser] -v /home/host_machine_user/host_machine_dir:/workspace/host_machine_dir -it [imageid]
+	# sudo docker run -p 8888:8888 --user [newuser] -v /home/host_machine_user/host_machine_dir:/workspace/host_machine_dir -it [imageid]
 	
 	# Create the solana wallet -> this will create our solana wallet we use in the terminal (VSCode)
 		# solana-keygen new
@@ -191,7 +191,8 @@ III. Create the token
 			# solana balance -v 
 				# this will also display the path to the private key if you forget the path noted above
 				
-		# Send SOL to your new wallet from exchange of choice -- e.g. Kraken, Coinbase, etc.. (if funds on blockchain, use Solana compatible bridge to transfer funds) 
+		# Send SOL to your new wallet from exchange of choice -- e.g. Kraken, Coinbase, etc.. (if funds on blockchain, use Solana 
+		compatible bridge to transfer funds) 
 			# the sol wallet is the public address we want to send to 
 			# we will need this going forward, so take the time now to add some SOL to your wallet - remember to add a 
 			# decent bit of solana as we will have to use this to create our token, account, send tokens, etc. 
@@ -200,7 +201,8 @@ III. Create the token
 		# Create our token
 			# sudo spl-token create-token
 				# Output:
-					# [token address]: This is the public address for your token! We need this so make sure you have it copied somewhere.
+					# [token address]: This is the public address for your token! We need this so make sure you have 
+					it copied somewhere.
 					# so boom, we have now created our token!! Super easy!
 					
 		# Create our token account:
@@ -220,7 +222,8 @@ III. Create the token
 				# token account -> account we want to send our tokens to
 				
 		# Mint output:
-			# The output will show the [token address] and the [token account] (where recipient is the token account address linked to our wallet)
+			# The output will show the [token address] and the [token account] (where recipient is the token account address 
+			linked to our wallet)
 				# the token is just one of the cryptos we hold in our wallet (account)
 		
 		# Verify the tokens have been minted to our account:
@@ -250,12 +253,14 @@ III. Create the token
 			# sudo docker rm [container_id]
 		
 
-IV: Work with final image - this contains all of our accounts, etc. and we can now pull up our container and get right to work when working with our token
+IV: Work with final image - this contains all of our accounts, etc. and we can now pull up our container and get right to work when 
+working with our token
 
 		# Run our image:
 			# sudo docker run -p 8888:8888 --user [newuser] -v /home/hostmachineuser/hostdir:/home/hostdir -it --rm [imageid]
 				# here we finally implement the --rm flag as we have installed all the necessary packages for our token container
-				# As such, the --rm flag automatically removes our container when we exit it - this drops the need to run the stop and remove commands once we exit the container
+				# As such, the --rm flag automatically removes our container when we exit it - 
+				this drops the need to run the stop and remove commands once we exit the container
 				
 		# Work with our token:
 			# Mint:
@@ -322,21 +327,23 @@ IV: Work with final image - this contains all of our accounts, etc. and we can n
 			
 		# To rectify this we can simply create a token on Strata Tokenlauch: https://app.strataprotocol.com/launchpad/create
 			# We can add our logo, and metadata - Strata takes care of the rest
-			# This is a basic process which is described well in their documentation - just a note, always add decimal places to your token, if you do not, this will be 
-			# generated as an NFT!  
+			# This is a basic process which is described well in their documentation - just a note, always add decimal places to your 
+			token, if you do not, this will be generated as an NFT!  
 		
 V. Summary
 
-1. This was a fun project to create a docker container so we can create an environment to work with our crypto - this is really great because it allows us to have an isolated environment to work 
-exclusively with our token
+1. This was a fun project to create a docker container so we can create an environment to work with our crypto - this is really great because 
+it allows us to have an isolated environment to work exclusively with our token
 
-2. Also, working with the terminal is always fun!  However, we were unable to work directly in terminal and commit the changes to github - this is due to the fact that the
-token-list has been "EOL" from solana labs github and therefore cannot add our metadata - I believe there are a few options out there - the only problem is that I disabled the mint function
-and was unable to commit the metadata to other services.. That said, we went ahead and created our token and have sucessfully launched it via strata.. So we accomplished our goal, albeit outside
+2. Also, working with the terminal is always fun!  However, we were unable to work directly in terminal and commit the changes to github - 
+this is due to the fact that the token-list has been "EOL" from solana labs github and therefore cannot add our metadata - I believe there 
+are a few options out there - the only problem is that I disabled the mint function and was unable to commit the metadata to other services.. 
+That said, we went ahead and created our token and have sucessfully launched it via strata.. So we accomplished our goal, albeit outside
 of the terminal!!
 	
-3. Something to note, our projects are only as good as the assumptions we make during implementation.  That in mind, my assumption that I could still commit to Solana token-list
-was incorrect as I found that it was EOL (end of life) and therefore had to figure out another way that did not require terminal.. So always verify your project before beginning
-to make sure you can complete all steps!  Oftentimes, the simplest aspect of the project is the one we overlook and therefore causes the biggest problems!
+3. Something to note, our projects are only as good as the assumptions we make during implementation.  That in mind, my assumption that I could 
+still commit to Solana token-list was incorrect as I found that it was EOL (end of life) and therefore had to figure out another way that did not 
+require terminal.. So always verify your project before beginning to make sure you can complete all steps!  Oftentimes, the simplest aspect 
+of the project is the one we overlook and therefore causes the biggest problems!
 
 4. Also, just realizing now that I probably should have used Alpine Linux Distro.lol But what can I say, Ubuntu is awesome!
