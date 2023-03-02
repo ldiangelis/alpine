@@ -1,20 +1,22 @@
 Create Token Project Notes:
 
 
-1. This project details the creation of the "Alpine Life" Solana blockchain token in a containerized environment. As a quick disclaimer, this is not in any way financial advice, 
-rather to work on a fun project.  The primary methods for the project include creating our own docker images, creating the crypto token itself, and finally deploying the 
-token with associated metadata to show the logo and info about our token! Here is a link to the token on solscan.io - If interested in getting some free Alpine Life tokens 
-hit me up and you got it! Although I should add the caveat that it is completely worthless.lol
-Link: https://solscan.io/token/6uwWcAuNZ7i1PkU1BqUNJEmUNqgmXWE4Djq6eKMUuAAh
+1. This project details the creation of the "Alpine Life" Solana blockchain token in a containerized environment. 
+As a quick disclaimer, this is not in any way financial advice, rather to work on a fun project.  The primary methods 
+for the project include creating our own docker images, creating the crypto token itself, and finally deploying the 
+token with associated metadata to show the logo and info about our token! Here is a link to the token on solscan.io - 
+If interested in getting some free Alpine Life tokens hit me up and you got it! Although I should add the caveat that 
+it is completely worthless.lol Link: https://solscan.io/token/6uwWcAuNZ7i1PkU1BqUNJEmUNqgmXWE4Djq6eKMUuAAh
 
 2. This tutorial was heavily inspired by NetworkChuck -> check out his excellent youtube channel here: https://www.youtube.com/@NetworkChuck
 
-3. I personally like to run the container from terminal then attach Visual Studio Code (VSCode) -> this can be done by downloading the Docker extension.
-Once installed we can run the container and attach VSCode to the container (Right click container from Docker tab, then select "Attach Visual Studio Code")
-this is my preference for working with the container in a console setting
+3. I personally like to run the container from terminal then attach Visual Studio Code (VSCode) -> this can be done by downloading 
+the Docker extension. Once installed we can run the container and attach VSCode to the container (Right click container from Docker tab, 
+then select "Attach Visual Studio Code") this is my preference for working with the container in a console setting
 
-4. We are going to work with the terminal here in lieu of a dockerfile (or docker compose) as this is an excellent opportunity to build terminal skills.  As a bonus, it is 
-fun to work with the terminal in general!  We implement this method as we want to be sure that all packages download correctly with the necessary dependencies.
+4. We are going to work with the terminal here in lieu of a dockerfile (or docker compose) as this is an excellent opportunity 
+to build terminal skills.  As a bonus, it is fun to work with the terminal in general!  We implement this method as we want to be 
+sure that all packages download correctly with the necessary dependencies.
 
 5. We will discuss the token creation process for terminal, solana token-list commit, and why we have to use Strata Protocol to launch our token instead.
 
@@ -189,8 +191,8 @@ III. Create the token
 				
 		# Send SOL to your new wallet from exchange of choice -- e.g. Kraken, Coinbase, etc.. (if funds on blockchain, use Solana compatible bridge to transfer funds) 
 			# the sol wallet is the public address we want to send to 
-			# we will need this going forward, so take the time now to add some SOL to your wallet - remember to add a decent bit of solana 
-			# as we will have to use this to create our token, account, send tokens, etc. 
+			# we will need this going forward, so take the time now to add some SOL to your wallet - remember to add a 
+			# decent bit of solana as we will have to use this to create our token, account, send tokens, etc. 
 			# dont worry about adding too much, we can easily transfer our solana in the additional steps in section IV
 			
 		# Create our token
