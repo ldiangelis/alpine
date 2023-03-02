@@ -183,7 +183,8 @@ III. Create the token
 			to get around the BIP-39 passphrase issue with importing the seed phrase to the wallet:
 				# ~/.config/solana
 				# nano json.id
-				# We should note that we do not need to do this currently as we would not need this until we have completed all steps
+				# We should note that we do not need to do this currently as we would not need this until we have
+				completed all steps
 				
 		# Verify solana balance
 			# solana balance
@@ -228,7 +229,8 @@ III. Create the token
 		
 		# Verify the tokens have been minted to our account:
 			# spl-token accounts
-				# The output will show the number of tokens we have from our mint - this should equal the number of tokens we minted
+				# The output will show the number of tokens we have from our mint - this should equal the number of 
+				tokens we minted
 			# spl-token accounts -v
 				# this provides more info to include both the token address and the token account
 		
@@ -258,7 +260,8 @@ working with our token
 
 		# Run our image:
 			# sudo docker run -p 8888:8888 --user [newuser] -v /home/hostmachineuser/hostdir:/home/hostdir -it --rm [imageid]
-				# here we finally implement the --rm flag as we have installed all the necessary packages for our token container
+				# here we finally implement the --rm flag as we have installed all the necessary packages
+				for our token container
 				# As such, the --rm flag automatically removes our container when we exit it - 
 				this drops the need to run the stop and remove commands once we exit the container
 				
@@ -268,7 +271,8 @@ working with our token
 					spl-token mint [token address] [n_tokens] [account address]
 				# However, if we would like to disable mint (as we should) we run:
 			
-			# Burn: - Lets say we minted an additional 1 billion tokens (2 billion in total), but we want to burn half of our supply
+			# Burn: - Lets say we minted an additional 1 billion tokens (2 billion in total), but we want to 
+			burn half of our supply
 				# spl-token burn -v [account address] [n_tokens], where n_tokens = 1_000_000_000
 			
 			# Disable Mint:
