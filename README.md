@@ -8,7 +8,8 @@ token with associated metadata to show the logo and info about our token! Here i
 If interested in getting some free Alpine Life tokens hit me up and you got it! Although I should add the caveat that 
 it is completely worthless.lol Link: https://solscan.io/token/6uwWcAuNZ7i1PkU1BqUNJEmUNqgmXWE4Djq6eKMUuAAh
 
-2. This tutorial was heavily inspired by NetworkChuck -> check out his excellent youtube channel here: https://www.youtube.com/@NetworkChuck
+2. This tutorial was heavily inspired by NetworkChuck -> check out his excellent youtube channel here: 
+https://www.youtube.com/@NetworkChuck
 
 3. I personally like to run the container from terminal then attach Visual Studio Code (VSCode) -> this can be done by downloading 
 the Docker extension. Once installed we can run the container and attach VSCode to the container (Right click container from Docker tab, 
@@ -18,7 +19,8 @@ then select "Attach Visual Studio Code") this is my preference for working with 
 to build terminal skills.  As a bonus, it is fun to work with the terminal in general!  We implement this method as we want to be 
 sure that all packages download correctly with the necessary dependencies.
 
-5. We will discuss the token creation process for terminal, solana token-list commit, and why we have to use Strata Protocol to launch our token instead.
+5. We will discuss the token creation process for terminal, solana token-list commit, and why we have to use Strata Protocol to 
+launch our token instead.
 
 I: Pull ubuntu image and set up user for the container
 
@@ -32,7 +34,7 @@ I: Pull ubuntu image and set up user for the container
 			# Copy and paste image_id to the run command below
 			
 	# Run the image
-		# sudo docker run -p 8888:8888 -v /home/host_machine_user/host_machine_directory:/workspace/host_machine_directory -it [image_id] 
+	# sudo docker run -p 8888:8888 -v /home/host_machine_user/host_machine_directory:/workspace/host_machine_directory -it [image_id] 
 
 	# Add new user - this is an optional step, if you omit this you run as the root user
 
