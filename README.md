@@ -20,10 +20,10 @@ fun to work with the terminal in general!  We implement this method as we want t
 
 I: Pull ubuntu image and set up user for the container
 
-1. Pull latest version of Ubuntu from docker hub:
-	# sudo docker pull ubuntu:latest
+	# Pull latest version of Ubuntu from docker hub:
+		# sudo docker pull ubuntu:latest
 
-2. Run ubuntu docker image
+	# Run ubuntu docker image
 
 	# Get the image_id for our ubuntu image
 		# sudo docker image ls
@@ -32,7 +32,7 @@ I: Pull ubuntu image and set up user for the container
 	# Run the image
 		# sudo docker run -p 8888:8888 -v /home/host_machine_user/host_machine_directory:/workspace/host_machine_directory -it [image_id] 
 
-3. Add new user - this is an optional step, if you omit this you run as the root user
+	# Add new user - this is an optional step, if you omit this you run as the root user
 
 	# First run the following prereq's prior to adding the new user
 		# apt update
