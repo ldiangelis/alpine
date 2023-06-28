@@ -78,11 +78,14 @@ II: Install the prereq's for solana
 						# https://github.com/solana-labs/solana/releases
 							# version above is current as of Jan 17, 2023
 					
-		# exit the terminal and reopen it - see VSCode tip below as again, this is my preferred method, but not required
-			# exit
+		# apply the changes 
+  			# source /root/.profile
+     
+		# Alternatively, exit the Visual Studio Code terminal
+  			# exit
 				# exiting the terminal allows us to commit the changes to our /root/.profile file
 				
-		# VSCode tip:
+		# Visual Studio Code tip:
 			# this is where VSCode is really beneficial, we can keep the container running from host terminal,
 	 		# and also have the benefit of being able to exit the VSCode terminal and reattach it to ensure our changes occur
 	 			
@@ -91,7 +94,9 @@ II: Install the prereq's for solana
 			
 		# verify the path updated
 			# export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
-			
+		
+  		# apply the changes (alternatively we can exit the container and reattach)
+     			# source /root/.profile			
 		# cd ~/
 			# change directory to dir
 			
