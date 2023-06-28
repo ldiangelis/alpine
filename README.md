@@ -86,8 +86,8 @@ II: Install the prereq's for solana
 				# exiting the terminal allows us to commit the changes to our /root/.profile file
 				
 		# Visual Studio Code tip:
-			# this is where VSCode is really beneficial, we can keep the container running from host terminal,
-	 		# and also have the benefit of being able to exit the VSCode terminal and reattach it to ensure our changes occur
+			# this is where Visual Studio Code is really beneficial, we can keep the container running from host terminal,
+	 		# and also have the benefit of being able to exit the Visual Studio Code terminal and reattach it to ensure our changes occur
 	 			
 		# sudo nano /root/.profile
 			# this should automatically add the path from our curl above, but we should still verify it has been modified
@@ -103,7 +103,7 @@ II: Install the prereq's for solana
 		# curl https://sh.rustup.rs -sSF | sh
 			# curl the https files and pipe it into the sh - sh here simply executes commands read from the curled file
 		 	# Enter 1
-			# exit terminal, reattach VSCode
+			# exit terminal, reattach Visual Studio Code
 			
 		# cd ~/
 			# change directory to dir that contains .cargo extension
@@ -111,8 +111,8 @@ II: Install the prereq's for solana
 		# ls -a 
 			# locate .cargo dir
 				# sudo nano .cargo/env
-					# Verify the path has been set to export PATH=$HOME/.cargo/bin:$PATH"
-					# apply the changes
+					# Verify the path has been set to export PATH="$HOME/.cargo/bin:$PATH"
+					# apply the changes (we can also exit terminal per your preference)
 						# source "$HOME/.cargo/env"
 							
 			
