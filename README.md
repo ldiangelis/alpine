@@ -22,7 +22,7 @@ sure that all packages download correctly with the necessary dependencies.
 5. We will discuss the token creation process for terminal, solana token-list commit, and why we have to use Strata Protocol to 
 launch our token instead.
 
-I: Pull ubuntu image and set up user for the container
+I: Pull ubuntu image and set up container
 
 	# Pull latest version of Ubuntu from docker hub:
 		# sudo docker pull ubuntu:latest
@@ -34,79 +34,43 @@ I: Pull ubuntu image and set up user for the container
 			# Copy and paste image_id to the run command below
 			
 	# Run the image
-	# sudo docker run -p 8888:8888 -v /home/host_machine_user/host_machine_dir:/workspace/host_machine_dir -it [image_id] 
+	# sudo docker run -p 8888:8888 -v /home/host_machine_user/host_machine_dir:/workspace/host_machine_dir -it [image_id]
 
-	# Add new user - this is an optional step, if you omit this you run as the root user
+ 	# Alternatively going forward, we can also implement a simple executable script - be sure to modify the [image_id] when using updated image:
+  		# Create the .sh file
+    			# nano file_name.sh
+       		# Add the docker image commands
+	 		# sudo docker run \
+    			  -p 8888:8888 \
+	 		  -v /home/host_machine_user/host_machine_dir:/workspace/host_machine_dir \
+      			  -it [image_id]
+	   	# We can also add this via echo:
+     			# echo "sudo docker run \
+    			  -p 8888:8888 \
+	 		  -v /home/host_machine_user/host_machine_dir:/workspace/host_machine_dir \
+      			  -it [image_id]" > file_name.sh
+	   	# Make the script executable:
+     			# sudo chmod +x file_name.sh
+		# Execute the script
+  			# ./file_name.sh
 
-	# First run the following prereq's prior to adding the new user
-		# apt update
+	# First run the following prereq's 
+		# apt-get update
 			# this updates the package source list with the latest versions of the package repos
 			
-		# apt install nano
+		# apt-get install nano
 			# this is a simple text editor so we are able to read/write files as necessary
 			
-		# apt install sudo
+		# apt-get install sudo
 			# downloads the sudo package so we require password to elevate priviledge for certain functions
 			
 		# passwd
 			# set the sudo password
-			
-		# sudo groupadd docker
-			# this creates a sudo group for docker
-		
-	# Add new user
-		# sudo adduser [newuser]
-			# here we define the new user name - can be whatever name you want
-			# once user has been set, the terminal will prompt you to enter password for this user
-			
-		# sudo usermod -aG sudo [newuser]
-			# this allows the user to have sudo prviledges
-			
-		# sudo usermod -aG docker [newuser]
-			# this allows the user priviledges for our docker group
-			
-		# su [newuser]
-			# quickly validate we are able to switch to our new user
-			
-		# sudo command
-			# quickly run a command with our new user to verify we are able to run with sudo priviledges
-			
-		# su -
-			# swap back to root user - if there is a problem with the [newuser], verify sudo/docker group permission
-				# sudo -l -U [newuser]
-					# for sudo priviledge
-				# groups [newuser]
-				
-		# nano /etc/passwd
-			# check to see what the User_ID and Group_ID are		
-				# If you would like to modify the UID or GID use - both UID and GID are (int) dtypes:
-					# usermod -u [newuserid] [newuser]
-					# groupmod -g [newusergroupid] [newuser]
-					
-		# nano /etc/passwd
-			# if you modified the UID and/or GID, verify they have been modified
-		# If you modified [newuser] UID/GID - verify you still have sudo/docker group permissions
-			# sudo -l -U [newuser]
-			# groups [newuser]
-			
-		# If you have the correct permissions, stop the container so we can commit it:
-			# sudo docker stop docker ps -q
-			
-		# Otherwise, follow the previous steps to re-add your newuser to sudo and docker groups
-			# sudo usermod -aG sudo [newuser]
-			# sudo usermod -aG docker [newuser]
-			
-	# Save the container on host machine and remove it
-		# sudo docker container commit [container_id] [newimagename:tag]
-		# sudo docker rm [container_id]
 		
 II: Install the prereq's for solana
-
-	# Run the commited image we just created with our new user - if you skipped this above, omit the --user [newuser] flag
-	# sudo docker run -p 8888:8888 --user [newuser] -v /home/host_machine_user/host_machine_dir:/home/host_machine_dir -it [imageid]
 	
 	# Install the necessary packages for solana
-		# sudo apt install curl
+		# sudo apt-get install curl
 			# this will allow us to download files/data from or to a server via https (others) - we are using https:
 				# sh -c "$(curl -sSfL https://release.solana.com/v1.13.6/install)"
 					# this installs the files we need to run our solana mainnet
@@ -129,7 +93,7 @@ II: Install the prereq's for solana
 			# export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
 			
 		# cd ~/
-			# change directory to [newuser] dir
+			# change directory to dir
 			
 		# curl https://sh.rustup.rs -sSF | sh
 			# curl the https files and pipe it into the sh - sh here simply executes commands read from the curled file
@@ -137,7 +101,7 @@ II: Install the prereq's for solana
 			# exit terminal, reattach VSCode
 			
 		# cd ~/
-			# change directory to [newuser] dir that contains .cargo extension
+			# change directory to dir that contains .cargo extension
 			
 		# ls -a 
 			# locate .cargo dir
@@ -147,11 +111,11 @@ II: Install the prereq's for solana
 						# source "$HOME/.cargo/env"
 							
 			
-		# sudo apt install libudev-dev -y
+		# sudo apt-get install libudev-dev -y
 		
-		# sudo apt install libssl-dev pkg-config -y
+		# sudo apt-get install libssl-dev pkg-config -y
 		
-		# sudo apt install build-essential -y
+		# sudo apt-get install build-essential -y
 		
 		# sudo cargo install spl-token-cli
 			# note how we use cargo here, which is a rust command
@@ -168,7 +132,7 @@ II: Install the prereq's for solana
 III. Create the token
 
 	# Run the container - from last commit in Step II:	
-	# sudo docker run -p 8888:8888 --user [newuser] -v /home/host_machine_user/host_machine_dir:/workspace/host_machine_dir -it [imageid]
+	# sudo docker run -p 8888:8888 -v /home/host_machine_user/host_machine_dir:/workspace/host_machine_dir -it [imageid]
 	
 	# Create the solana wallet -> this will create our solana wallet we use in the terminal (VSCode)
 		# solana-keygen new
@@ -259,7 +223,7 @@ IV: Work with final image - this contains all of our accounts, etc. and we can n
 working with our token
 
 		# Run our image:
-			# sudo docker run -p 8888:8888 --user [newuser] -v /home/hostmachineuser/hostdir:/home/hostdir -it --rm [imageid]
+			# sudo docker run -p 8888:8888 -v /home/hostmachineuser/hostdir:/home/hostdir -it --rm [imageid]
 				# here we finally implement the --rm flag as we have installed all the necessary packages
 				for our token container
 				# As such, the --rm flag automatically removes our container when we exit it - 
