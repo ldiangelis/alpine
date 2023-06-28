@@ -107,7 +107,7 @@ II: Install the prereq's for solana
 			# locate .cargo dir
 				# sudo nano .cargo/env
 					# Verify the path has been set to export PATH=$HOME/.cargo/bin:$PATH"
-					# alternatively can run this without explicitly accessing this directory and file
+					# apply the changes
 						# source "$HOME/.cargo/env"
 							
 			
